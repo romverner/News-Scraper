@@ -39,6 +39,34 @@ db.User.create({ name: "Ernest Hemingway" })
     console.log(err.message);
 });
 
+app.get("/scrape", function(req, res) {
+    // First, we grab the body of the html with axios
+    axios.get("https://www.cargurus.com/Cars/autos/").then(function(response) {
+        // Then, we load that into cheerio and save it to $ for a shorthand selector
+        var $ = cheerio.load(response.data);
+  
+        // Now, we grab every h2 within an article tag, and do the following:
+        $("article").each(function(i, element) {
+            // Save an empty result object
+            var result = {};
+
+            result.title = $(element).children("a").children("h3").text();
+            result.summary = $(element).children("a").children(".cg-research-article-preview").children("p").text();
+            result.link = $(element).children("a").attr("href");
+
+            db.Article.create(result)
+            .then(function(dbArticle) {
+                console.log(dbArticle);
+            }).catch(function(err) {
+                console.log(err);
+            });
+        });
+    
+        // Send a message to the client
+        res.send("Scrape Complete");
+    });
+});
+
 // Routes
 
 // Route for retrieving all Notes from the db
