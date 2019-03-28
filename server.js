@@ -70,6 +70,6 @@ app.get("/scrape", function(req, res) {
 var routes = require("./routes/routes");
 app.use(routes);
 
-app.listen(PORT, function() {
+app.listen(process.env.PORT || PORT, function() {
   console.log("App running on port " + PORT + "!");
 });
