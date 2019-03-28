@@ -5,6 +5,7 @@ var db = require("../models");
 router.get("/", (req, res) => {
     db.Article.find({})
     .then(function(dbArticle) {
+        console.log(dbArticle);
         res.render("index", dbArticle);
     })
     .catch(function(err) {
