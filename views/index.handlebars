@@ -21,7 +21,7 @@
         </div>
         <div class="row mb-3">
             <div class="col-12">
-                <button class="btn btn-info comment" id={{this._id}}>Comment</button>
+                <button class="btn btn-info comment" id={{this._id}} data-toggle="modal" data-target="#exampleModal">Comment</button>
                 <button class="btn btn-info seeComments" id={{this._id}}>See Comments</button>
             </div>
         </div>
@@ -32,4 +32,25 @@
     {{/if}}
     {{/if}}
     {{/each}}
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Comment:</span>
+                    </div>
+                    <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
 </div>
