@@ -25,14 +25,7 @@
 			});
 
 			$(document).on("click", "#update", function() {
-				$.ajax({
-					method: "GET",
-					url: "/scrape"
-				})
-				.then(function(data) {
-					console.log("Scrape complete.");
-					location.reload();
-				});
+				location.href = "/scrape";
 			});
 		</script>
 	</body>
