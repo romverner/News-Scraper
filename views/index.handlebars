@@ -1,25 +1,28 @@
 <nav class="navbar navbar-dark bg-dark">
-  <span class="navbar-brand mb-0 h1">News Scraper</span>
+    <span class="navbar-brand mb-0 h1">News Scraper</span>
 </nav>
 
 <div class="container-fluid bg-light">
-        {{#each this}}
-        {{#if this.title}}
-        {{#if this.summary}}
-            <div class="container bg-light border mt-3">
-                <div class="row">
-                    <div class="col-12 mt-3">
-                        <a href="https://www.cargurus.com/Cars{{this.link}}"><h4>{{this.title}}</h4></a>
-                    </div>
-                    <div class="col-10">
-                        <p>{{this.summary}}</p>
-                    </div>
-                    <div class="col-2">
-                        <button class="btn btn-secondary comment" id={{this._id}}>Comment</button>
-                    </div>
-                </div>
+    {{#each this}}
+    {{#if this.title}}
+    {{#if this.summary}}
+    <div class="container bg-light border mt-3">
+        <div class="row">
+            <div class="col-12 mt-3">
+                <a href="https://www.cargurus.com/Cars{{this.link}}">
+                    <h4>{{this.title}}</h4>
+                </a>
             </div>
-        {{/if}}
-        {{/if}}
-        {{/each}}
+            <div class="col-10">
+                <p>{{this.summary}}</p>
+            </div>
+            <div class="col-2">
+                <button class="btn btn-secondary comment" id={{this._id}}>Comment</button>
+            </div>
+            <div class="col-12" id={{this._id}}></div>
+        </div>
+    </div>
+    {{/if}}
+    {{/if}}
+    {{/each}}
 </div>
