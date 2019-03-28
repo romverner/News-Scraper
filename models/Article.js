@@ -1,6 +1,4 @@
 var mongoose = require("mongoose");
-
-// Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
 
 var ArticleSchema = new Schema({
@@ -10,9 +8,15 @@ var ArticleSchema = new Schema({
         unique: true
     },
     // Saving the article summary as a string
-    summary: String,
+    summary: {
+        type: String,
+        unique: true
+    },
     // Saving the link to the actual article as a string
-    link: String,
+    link: {
+        type: String,
+        unique: true,
+    },
     comment: {
         type: Schema.Types.ObjectId,
         ref: "Comment"

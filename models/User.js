@@ -6,12 +6,9 @@ var UserSchema = new Schema({
         type: String,
         unique: true
     },
-    comments: [
-        {
-        type: Schema.Types.ObjectId,
-        ref: "Article"
-        }
-    ]
+    comments: {
+        type: Array,
+    }
 });
 
 var User = mongoose.model("User", UserSchema);
