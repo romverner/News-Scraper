@@ -27,7 +27,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/populatedb", { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // When the server starts, create and save a new User document to the db
 // The "unique" rule in the User model's schema will prevent duplicate users from being added to the server
@@ -106,6 +106,10 @@ db.User.create({ name: "Ernest Hemingway" })
 // });
 
 // Start the server
+
+var routes = require("./routes/routes");
+app.use(routes);
+
 app.listen(PORT, function() {
   console.log("App running on port " + PORT + "!");
 });
