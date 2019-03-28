@@ -1,7 +1,8 @@
-<nav class="navbar navbar-dark bg-dark">
-    <span class="navbar-brand mb-0 h1">News Scraper</span>
-    <button class="btn btn-primary update" id="update">Update Articles</button>
-</nav>
+<div class="container-fluid mt-3">
+    <span class="mr-3 h1">News Scraper</span>
+    <button class="btn btn-success mr-3" id="update">Update Articles</button>
+    <button class="btn btn-primary" id="myArticles">My Comments</button>
+</div>
 
 <div class="container-fluid bg-light">
     {{#each this}}
@@ -18,7 +19,7 @@
                 <p>{{this.summary}}</p>
             </div>
             <div class="col-2">
-                <button class="btn btn-secondary comment" id={{this._id}}>Comment</button>
+                <button class="btn btn-info comment" id={{this._id}}>Comment</button>
             </div>
             <div class="col-12" id={{this._id}}></div>
         </div>
